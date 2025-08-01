@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="initial-scale=1.0,maximum-scale=5,width=device-width,viewport-fit=cover">
+  <title>新闻网:全球热点・财经科技 一站式资讯平台</title>
+  <meta name="keywords"
+    content="新闻网，涵盖财经资讯、科技新闻、国外动态与全球热点，汇聚最新文章、热门资讯及行业动态；包含影视剧情、影视结局解析，生活健康资讯与互联网资源；聚焦资本新焦点、AI 智能设备、人形机器人等前沿领域，关联 thunderflash666 博客，打造综合资讯平台核心关键词体系。">
+  <meta name="description"
+    content="集财经、科技、国外动态等多元资讯于一体的综合信息平台，涵盖最新文章、热门资讯、影视剧情解析、生活健康知识及资本行业焦点等内容，所有资源来源于互联网，为用户提供全面、及时的信息参考与浏览服务，满足不同群体对各类资讯的获取需求">
+  <meta name="author" content="">
+  <meta property="og:type" content="webpage">
+  <meta property="og:title" content="新闻网:全球热点・财经科技 一站式资讯平台 | thunderflash666">
+  <meta property="og:description"
+    content="新闻网，涵盖财经资讯、科技新闻、国外动态与全球热点，汇聚最新文章、热门资讯及行业动态；包含影视剧情、影视结局解析，生活健康资讯与互联网资源；聚焦资本新焦点、AI 智能设备、人形机器人等前沿领域，关联 thunderflash666 博客，打造综合资讯平台核心关键词体系。">
+  <meta property="og:image" content="https://www.thunderflash666.com/favicons.ico">
+  <meta property="og:type" content="webpage">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <link rel="stylesheet" href="/static/css/style.css" media="all">
+  <link rel="icon" href="favicons.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicons.ico">
+  <script src='/static/js/jquery.min.js'></script>
+  <script src='/static/js/icons-2.6.12.js'></script>
+  <!--[if lte IE 9]><script src="http://demo2.92wailian.com/k433/skin/js/update.js"></script><![endif]-->
+</head>
+
+<body class="home page-template page-template-page-home page-template-page-home-php page page-id-2 lang-cn">
+  <header class="header header-style-2">
+    {include file="commons/header"}
+  </header>
+  <div id="wrap">
+    <section class="section web-modules modules-feature-posts container feature-posts-style-1" id="modules-1">
+      <div class="feature-posts-wrap web-slider">
+        <ul class="post-loop post-loop-card cols-3 swiper-wrapper" id="banner-list">
+          {foreach $banner as $item}
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-wrap-bg j-lazy" style="background-image: url({$item.cover});"></div>
+              <div class="item-container">
+                <div class="item-img j-lazy" style="background-image: url({$item.cover});"> <a
+                    class="item-wrap" href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}"> <span class="item-title">
+                      {$item.title} </span> <span class="item-meta"> <span
+                        class="item-meta-left">{$item.updatetime}</span> <span class="item-meta-right"> </span> </span> </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          {/foreach}
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"><i class="web-icon wi"><svg aria-hidden="true">
+              <use xlink:href="#wi-arrow-left-3"></use>
+            </svg></i></div>
+        <div class="swiper-button-next"><i class="web-icon wi"><svg aria-hidden="true">
+              <use xlink:href="#wi-arrow-right-3"></use>
+            </svg></i></div>
+      </div>
+      <script>jQuery(document).ready(function () {
+          var _swiper_1 = {
+            onInit: function (el) {
+              if (el.slides.length < 4) {
+                this.autoplay = false;
+                this.touchRatio = 0;
+                el.stopAutoplay();
+              }
+              jQuery(el.container[0]).on('click', '.swiper-button-next', function () {
+                el.slideNext();
+              }).on('click', '.swiper-button-prev', function () {
+                el.slidePrev();
+              });
+              setTimeout(function () {
+                jQuery(window).trigger('scroll');
+              }, 800);
+            },
+            pagination: '.swiper-pagination',
+            slideClass: 'item',
+            paginationClickable: true,
+            simulateTouch: false,
+            loop: true,
+            autoplay: _web_js.slide_speed ? _web_js.slide_speed : 5000,
+            effect: 'slide',
+            onSlideChangeEnd: function () {
+              jQuery(window).trigger('scroll');
+            }
+          };
+          new Swiper('#modules-1 .feature-posts-wrap', _swiper_1);
+        });</script>
+    </section>
+    <section class="section web-modules modules-sidebar-layout container j-modules-wrap" id="modules-13">
+      <div class="main j-modules-inner">
+        <section class="section web-modules modules-main-list" id="middlemenu" id="modules-12">
+          <div class="sec-panel main-list main-list-image" data-type="image">
+            <div class="sec-panel-head">
+              <ul class="list tabs j-newslist" data-type="image data-per_page=12">
+                <li class="tab active"> <a href="javascript:;"> 推荐 </a> <i class="tab-underscore"></i> </li>
+
+                <li class="tab"><a href="javascript:;">运营</a></li>
+
+              </ul>
+            </div>
+            <ul class="post-loop post-loop-image cols-3 tab-wrap active">
+              {foreach $content as $item}
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="{$item.title}" src="{$item.cover}" loading="lazy"
+                                 onerror="this.onerror=null;this.src='{$item.img}'"> </a> </div>
+                  <h2 class="item-title"> <a href="/detail/{$item.con_id}/{$item.title}"> {$item.title} </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>浏览:{$item.views}</span> </a>
+                    <div class="item-meta-right">时间：{$item.updatetime}</div>
+                  </div>
+                </div>
+              </li>
+              {/foreach}
+            </ul>
+
+            <ul class="post-loop post-loop-image cols-3 tab-wrap">
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43311.html" title="“拼购”为何成为电商博弈的又一杀手锏？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="“拼购”为何成为电商博弈的又一杀手锏？" src="static/picture/1-19112016050G28.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43311.html"> “拼购”为何成为电商博弈的又一杀手锏？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:156次</span> </a>
+                    <div class="item-meta-right">时间：2021-08-03</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43312.html" title="无人餐厅喜忧参半，要成还得看“暖科技”？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="无人餐厅喜忧参半，要成还得看“暖科技”？" src="static/picture/1-191120160439251.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43312.html"> 无人餐厅喜忧参半，要成还得看“暖科技”？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:104次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43313.html" title="6609首歌从KTV下架，《十年》《泡沫》均中招，原">
+                      <img class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="6609首歌从KTV下架，《十年》《泡沫》均中招，原" src="static/picture/1-191120160413294.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43313.html"> 6609首歌从KTV下架，《十年》《泡沫》均中招，原 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:60次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43314.html" title="雷军：天使投资人经历让我学会找风口 小米未来"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="雷军：天使投资人经历让我学会找风口 小米未来" src="static/picture/1-1911201603305X.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43314.html"> 雷军：天使投资人经历让我学会找风口 小米未来 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:57次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43315.html" title="互联网是我们孩子的哆啦A梦还是洪水猛兽？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="互联网是我们孩子的哆啦A梦还是洪水猛兽？" src="static/picture/1-191120160252229.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43315.html"> 互联网是我们孩子的哆啦A梦还是洪水猛兽？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:54次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43316.html" title="金立手机16年：一杯敬国产手机第一名，一杯敬全"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="金立手机16年：一杯敬国产手机第一名，一杯敬全" src="static/picture/15J23140196330-HY6.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43316.html"> 金立手机16年：一杯敬国产手机第一名，一杯敬全 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:51次</span> </a>
+                    <div class="item-meta-right">时间：2021-08-03</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43318.html" title="区块链未死！2019区块链+农业或将浴火重生"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="区块链未死！2019区块链+农业或将浴火重生" src="static/picture/15J23111L4Y0-5V05.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43318.html"> 区块链未死！2019区块链+农业或将浴火重生 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:41次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43323.html" title="五星级酒店又曝卫生乱象：喜来登、华尔道夫、"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="五星级酒店又曝卫生乱象：喜来登、华尔道夫、" src="static/picture/15J2313W13Y0-56434.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43323.html"> 五星级酒店又曝卫生乱象：喜来登、华尔道夫、 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43324.html" title="折叠屏手机太新是噱头？这件事比全面屏做的时"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="折叠屏手机太新是噱头？这件事比全面屏做的时" src="static/picture/15J2313TN240-2F43.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43324.html"> 折叠屏手机太新是噱头？这件事比全面屏做的时 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43325.html" title="中文互联网文化，从追逐流量到寻求质量的路还"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="中文互联网文化，从追逐流量到寻求质量的路还" src="static/picture/15J231323VM0-5M22.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43325.html"> 中文互联网文化，从追逐流量到寻求质量的路还 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:31次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43326.html" title="从街机到抓娃娃机，硬币经济也将被移动支付取"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="从街机到抓娃娃机，硬币经济也将被移动支付取" src="static/picture/15J231445V550-243158.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43326.html"> 从街机到抓娃娃机，硬币经济也将被移动支付取 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:31次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43327.html" title="百元停车费难住用户，分时租赁汽车还在吃灰？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="百元停车费难住用户，分时租赁汽车还在吃灰？" src="static/picture/15J23144422c0-Q195.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43327.html"> 百元停车费难住用户，分时租赁汽车还在吃灰？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:35次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="load-more-wrap">
+                <div class="btn load-more j-load-more"><a href="k4332.html">点击查看更多</a></div>
+              </li>
+            </ul>
+
+            <ul class="post-loop post-loop-image cols-3 tab-wrap">
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43328.html" title="当网红本人成为网红毒瘤：Vtuber的纸片人模式能">
+                      <img class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="当网红本人成为网红毒瘤：Vtuber的纸片人模式能" src="static/picture/15J2314U064Z-1TM4.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43328.html"> 当网红本人成为网红毒瘤：Vtuber的纸片人模式能 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:45次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43329.html" title="不谋而合的“云计划”，但时代的主题已不再是"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="不谋而合的“云计划”，但时代的主题已不再是" src="static/picture/15J2314T43F-152029.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43329.html"> 不谋而合的“云计划”，但时代的主题已不再是 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:35次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43330.html" title="短视频下半场，版权争霸战开打，谁将首发“阵"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="短视频下半场，版权争霸战开打，谁将首发“阵" src="static/picture/15J2314T11130-12GM.png"> </a> </div>
+                  <h2 class="item-title"> <a href="k43330.html"> 短视频下半场，版权争霸战开打，谁将首发“阵 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:30次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43331.html" title="二手平台上的“奇葩”卖家，是一门新的流量生"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="二手平台上的“奇葩”卖家，是一门新的流量生" src="static/picture/15J2314S2K10-A032.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43331.html"> 二手平台上的“奇葩”卖家，是一门新的流量生 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:34次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43332.html" title="互联网下半场，ARM云会是新出路吗？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="互联网下半场，ARM云会是新出路吗？" src="static/picture/15J2314PGc0-11M6.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43332.html"> 互联网下半场，ARM云会是新出路吗？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:34次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43333.html" title="NFC对战二维码，谁能笑到最后？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="NFC对战二维码，谁能笑到最后？" src="static/picture/15J2314M53530-M925.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43333.html"> NFC对战二维码，谁能笑到最后？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43334.html" title="上市搁浅背后：唱吧、全民K歌们的在线K歌如今活"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="上市搁浅背后：唱吧、全民K歌们的在线K歌如今活" src="static/picture/15J2314M1aP-4H64.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43334.html"> 上市搁浅背后：唱吧、全民K歌们的在线K歌如今活 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:31次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43335.html" title="马云、郭广昌最新演讲：过冬靠自己，只有熬过"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="马云、郭广昌最新演讲：过冬靠自己，只有熬过" src="static/picture/15J2314M0A40-325I.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43335.html"> 马云、郭广昌最新演讲：过冬靠自己，只有熬过 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:35次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43336.html" title="智能快递柜是否能成为物流末端的“主流”？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="智能快递柜是否能成为物流末端的“主流”？" src="static/picture/15J2314L92520-29256.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43336.html"> 智能快递柜是否能成为物流末端的“主流”？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43337.html"
+                      title="“瑞士版亚马逊”Digitec Galaxus宣布接受加密数字"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="“瑞士版亚马逊”Digitec Galaxus宣布接受加密数字" src="static/picture/15J23114413540-52551.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43337.html"> “瑞士版亚马逊”Digitec Galaxus宣布接受加密数字 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:30次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43338.html" title="从废墟中崛起：BCH的战后重建之路"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="从废墟中崛起：BCH的战后重建之路" src="static/picture/15J23111K0B0-421L.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43338.html"> 从废墟中崛起：BCH的战后重建之路 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:35次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43339.html" title="MakerDAO 收入分析：谁才是最大的获益者？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="MakerDAO 收入分析：谁才是最大的获益者？" src="static/picture/15J23114144M0-1I440.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43339.html"> MakerDAO 收入分析：谁才是最大的获益者？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="load-more-wrap">
+                <div class="btn load-more j-load-more"><a href="k4333.html">点击查看更多</a></div>
+              </li>
+            </ul>
+
+            <ul class="post-loop post-loop-image cols-3 tab-wrap">
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43340.html" title="社交网络大败局，互联网没有赢家"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy" alt="社交网络大败局，互联网没有赢家"
+                        src="static/picture/15J23145T12P-54220.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43340.html"> 社交网络大败局，互联网没有赢家 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:43次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43341.html" title="共享单车，或许是中国创业史上最疯狂的试错"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="共享单车，或许是中国创业史上最疯狂的试错" src="static/picture/15J23145Rb40-43350.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43341.html"> 共享单车，或许是中国创业史上最疯狂的试错 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:39次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43342.html" title="亲兵撤退 资本离弃 玉红再被抛弃"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="亲兵撤退 资本离弃 玉红再被抛弃" src="static/picture/15J23112c4S0-52D8.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43342.html"> 亲兵撤退 资本离弃 玉红再被抛弃 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:30次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43343.html" title="Bithumb将裁员50％，还说大多员工是自愿退休">
+                      <img class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="Bithumb将裁员50％，还说大多员工是自愿退休" src="static/picture/15J23112b260-44O8.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43343.html"> Bithumb将裁员50％，还说大多员工是自愿退休 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43344.html" title="没完的ICO：这次又是IEO了 币圈融资操碎了心"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="没完的ICO：这次又是IEO了 币圈融资操碎了心" src="static/picture/15J23112952140-121b.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43344.html"> 没完的ICO：这次又是IEO了 币圈融资操碎了心 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:35次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43345.html" title="比特大陆推新矿机：可挖掘隐私币，算力较Z9“强"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="比特大陆推新矿机：可挖掘隐私币，算力较Z9“强" src="static/picture/15J23112I5a0-13U31.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43345.html"> 比特大陆推新矿机：可挖掘隐私币，算力较Z9“强 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:32次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43346.html" title="“蓝色巨人”IBM的区块链布局：客户已超500家"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="“蓝色巨人”IBM的区块链布局：客户已超500家" src="static/picture/15J23112C0R0-106407.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43346.html"> “蓝色巨人”IBM的区块链布局：客户已超500家 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:31次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43347.html" title="冰岛最大抢劫案剧本：偷矿机、偷电、越狱"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="冰岛最大抢劫案剧本：偷矿机、偷电、越狱" src="static/picture/15J23112Ac60-aL0.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43347.html"> 冰岛最大抢劫案剧本：偷矿机、偷电、越狱 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43348.html" title="纽交所母公司ICE官网收录了58种数字货币，距加密">
+                      <img class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="纽交所母公司ICE官网收录了58种数字货币，距加密" src="static/picture/15J231125HK0-3N17.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43348.html"> 纽交所母公司ICE官网收录了58种数字货币，距加密 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43349.html" title="英国退欧在即 爱尔兰能否靠区块链抵御冲击？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="英国退欧在即 爱尔兰能否靠区块链抵御冲击？" src="static/picture/15J23112531c0-110X.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43349.html"> 英国退欧在即 爱尔兰能否靠区块链抵御冲击？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43350.html" title="比特币ETF遭到84%反对票，反对者们都说了啥？"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="比特币ETF遭到84%反对票，反对者们都说了啥？" src="static/picture/15J23112314930-E027.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43350.html"> 比特币ETF遭到84%反对票，反对者们都说了啥？ </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:33次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="item">
+                <div class="item-inner">
+                  <div class="item-img"> <a class="item-thumb" href="k43351.html" title="IBM区块链副总裁：一半加密货币项目将死去，量"> <img
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                        alt="IBM区块链副总裁：一半加密货币项目将死去，量" src="static/picture/15J231122R910-45210.jpg"> </a> </div>
+                  <h2 class="item-title"> <a href="k43351.html"> IBM区块链副总裁：一半加密货币项目将死去，量 </a></h2>
+                  <div class="item-meta-author"> <a class="avatar j-user-card"> <span>点击:29次</span> </a>
+                    <div class="item-meta-right">时间：2019-11-20</div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="load-more-wrap">
+                <div class="btn load-more j-load-more"><a href="k4334.html">点击查看更多</a></div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <aside class="sidebar">
+        {include file="commons/relatedinfo"}
+      </aside>
+    </section>
+    <section class="section web-modules modules-feature-posts container feature-posts-style-2" id="modules-2">
+      <div class="feature-posts-wrap web-slider">
+        <ul class="post-loop post-loop-card cols-3 swiper-wrapper">
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J23140196330-HY6.jpg);"> <a
+                  class="item-wrap" href="k43316.html" title="金立手机16年：一杯敬国产手机第一名，一杯敬全"> <span class="item-title">
+                    金立手机16年：一杯敬国产手机第一名，一杯敬全 </span> <span class="item-meta"> <span
+                      class="item-meta-left">2021-08-03</span> </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J231235D30-1L595.jpg);"> <a
+                  class="item-wrap" href="k43317.html" title="科技晚报：富途控股在美上市 丰田品牌在华推出"> <span class="item-title">
+                    科技晚报：富途控股在美上市 丰田品牌在华推出 </span> <span class="item-meta"> <span
+                      class="item-meta-left">2021-08-03</span> </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/1-19112016050G28.jpg);"> <a
+                  class="item-wrap" href="k43311.html" title="“拼购”为何成为电商博弈的又一杀手锏？"> <span class="item-title">
+                    “拼购”为何成为电商博弈的又一杀手锏？ </span> <span class="item-meta"> <span class="item-meta-left">2021-08-03</span>
+                  </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/1-191120160439251.jpg);"> <a
+                  class="item-wrap" href="k43312.html" title="无人餐厅喜忧参半，要成还得看“暖科技”？"> <span class="item-title">
+                    无人餐厅喜忧参半，要成还得看“暖科技”？ </span> <span class="item-meta"> <span class="item-meta-left">2019-11-20</span>
+                  </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/1-191120160413294.jpg);"> <a
+                  class="item-wrap" href="k43313.html" title="6609首歌从KTV下架，《十年》《泡沫》均中招，原"> <span class="item-title">
+                    6609首歌从KTV下架，《十年》《泡沫》均中招，原 </span> <span class="item-meta"> <span
+                      class="item-meta-left">2019-11-20</span> </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/1-1911201603305X.jpg);"> <a
+                  class="item-wrap" href="k43314.html" title="雷军：天使投资人经历让我学会找风口 小米未来"> <span class="item-title">
+                    雷军：天使投资人经历让我学会找风口 小米未来 </span> <span class="item-meta"> <span
+                      class="item-meta-left">2019-11-20</span> </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/1-191120160252229.jpg);"> <a
+                  class="item-wrap" href="k43315.html" title="互联网是我们孩子的哆啦A梦还是洪水猛兽？"> <span class="item-title">
+                    互联网是我们孩子的哆啦A梦还是洪水猛兽？ </span> <span class="item-meta"> <span class="item-meta-left">2019-11-20</span>
+                  </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J23111L4Y0-5V05.jpg);"> <a
+                  class="item-wrap" href="k43318.html" title="区块链未死！2019区块链+农业或将浴火重生"> <span class="item-title">
+                    区块链未死！2019区块链+农业或将浴火重生 </span> <span class="item-meta"> <span
+                      class="item-meta-left">2019-11-20</span> </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J23155404640-9Ca.jpg);"> <a
+                  class="item-wrap" href="k43319.html" title="短视频内容创业没有下半场"> <span class="item-title"> 短视频内容创业没有下半场
+                  </span> <span class="item-meta"> <span class="item-meta-left">2019-11-20</span> </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J23155609520-244064.jpg);"> <a
+                  class="item-wrap" href="k43320.html" title="“夸夸群”满足了你的精神，也满足了他的钱袋"> <span class="item-title">
+                    “夸夸群”满足了你的精神，也满足了他的钱袋 </span> <span class="item-meta"> <span
+                      class="item-meta-left">2019-11-20</span> </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J231555060F-1924a.jpg);"> <a
+                  class="item-wrap" href="k43321.html" title="视频命长，直播命短"> <span class="item-title"> 视频命长，直播命短 </span>
+                  <span class="item-meta"> <span class="item-meta-left">2019-11-20</span> </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J231553P050-G432.jpg);"> <a
+                  class="item-wrap" href="k43322.html" title="共享单车生死局变 谁能先手做活"> <span class="item-title"> 共享单车生死局变
+                    谁能先手做活 </span> <span class="item-meta"> <span class="item-meta-left">2019-11-20</span> </span> </a>
+              </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J23155329130-2a04.jpg);"> <a
+                  class="item-wrap" href="k43364.html" title="“抄袭”花粥与“做号”露露，揭开的是内容创"> <span class="item-title">
+                    “抄袭”花粥与“做号”露露，揭开的是内容创 </span> <span class="item-meta"> <span
+                      class="item-meta-left">2019-11-20</span> </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J231550b330-1S3J.jpg);"> <a
+                  class="item-wrap" href="k43365.html" title="直播之死：从“网红经济”到“平台场景”"> <span class="item-title">
+                    直播之死：从“网红经济”到“平台场景” </span> <span class="item-meta"> <span class="item-meta-left">2019-11-20</span>
+                  </span> </a> </div>
+            </div>
+          </li>
+
+          <li class="item">
+            <div class="item-inner">
+              <div class="item-img j-lazy" style="background-image: url(static/image/15J23155031560-1460B.png);"> <a
+                  class="item-wrap" href="k43366.html" title="顺丰困局：内忧不断，外患当头"> <span class="item-title"> 顺丰困局：内忧不断，外患当头
+                  </span> <span class="item-meta"> <span class="item-meta-left">2019-11-20</span> </span> </a> </div>
+            </div>
+          </li>
+
+        </ul>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"><i class="web-icon wi"><svg aria-hidden="true">
+              <use xlink:href="#wi-arrow-left-3"></use>
+            </svg></i></div>
+        <div class="swiper-button-next"><i class="web-icon wi"><svg aria-hidden="true">
+              <use xlink:href="#wi-arrow-right-3"></use>
+            </svg></i></div>
+      </div>
+      <script>jQuery(document).ready(function () {
+          var _swiper_2 = {
+            onInit: function (el) {
+              if (el.slides.length < 4) {
+                this.autoplay = false;
+                this.touchRatio = 0;
+                el.stopAutoplay();
+              }
+              jQuery(el.container[0]).on('click', '.swiper-button-next', function () {
+                el.slideNext();
+              }).on('click', '.swiper-button-prev', function () {
+                el.slidePrev();
+              });
+              setTimeout(function () {
+                jQuery(window).trigger('scroll');
+              }, 800);
+            },
+            pagination: '.swiper-pagination',
+            slideClass: 'item',
+            paginationClickable: true,
+            simulateTouch: false,
+            loop: true,
+            autoplay: _web_js.slide_speed ? _web_js.slide_speed : 5000,
+            effect: 'slide',
+            onSlideChangeEnd: function () {
+              jQuery(window).trigger('scroll');
+            }
+          };
+          _swiper_2.slidesPerView = 3;
+          _swiper_2.spaceBetween = 0;
+          _swiper_2.slidesPerGroup = 3;
+          _swiper_2.breakpoints = {
+            767: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+              spaceBetween: 1
+            }
+          };
+          new Swiper('#modules-2 .feature-posts-wrap', _swiper_2);
+        });</script>
+    </section>
+    <section class="section web-modules modules-category-posts container" id="modules-10">
+      <div class="sec-panel">
+        <div class="sec-panel-head">
+          <h3> <span><a>热门</a></span></h3>
+        </div>
+        <div class="sec-panel-body">
+          <ul class="post-loop post-loop-card cols-4" id="hot">
+            {foreach $popolar as $item}
+            <li class="item">
+              <div class="item-inner">
+                <div class="item-img j-lazy" style="background-image: url({$item.cover});"> <a
+                    class="item-wrap" href='/detail/{$item.con_id}/{$item.title}' title="{$item.title}"> <span class="item-title">
+                      {$item.title} </span> <span class="item-meta"> <span
+                        class="item-meta-left">{$item.updatetime}</span> </span> </a> </div>
+              </div>
+            </li>
+            {/foreach}
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section web-modules modules-gird container" id="modules-7">
+      <div class="row">
+
+        <div class="j-modules-inner col-md-12 col-sm-48 col-xs-48">
+          <section class="section web-modules modules-category-posts" id="modules-8">
+            <div class="sec-panel">
+              <div class="sec-panel-head">
+                <h3> <span><a href="k4332.html">运营</a></span> <a class="more" href="k4332.html">更多 <i
+                      class="web-icon wi"><svg aria-hidden="true">
+                        <use xlink:href="#wi-arrow-right"></use>
+                      </svg></i></a></h3>
+              </div>
+              <div class="sec-panel-body">
+                <ul class="post-loop post-loop-list cols-4">
+
+                  <li class="item"> <span class="date pull-right">2021-08-03</span> <a href='k4332.html'>
+                      “拼购”为何成为电商博弈的又一杀手锏？ </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4332.html'>
+                      无人餐厅喜忧参半，要成还得看“暖科技”？ </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4332.html'>
+                      6609首歌从KTV下架，《十年》《泡沫》均中招，原 </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4332.html'>
+                      雷军：天使投资人经历让我学会找风口 小米未来 </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4332.html'>
+                      互联网是我们孩子的哆啦A梦还是洪水猛兽？ </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2021-08-03</span> <a href='k4332.html'>
+                      金立手机16年：一杯敬国产手机第一名，一杯敬全 </a> </li>
+
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="j-modules-inner col-md-12 col-sm-48 col-xs-48">
+          <section class="section web-modules modules-category-posts" id="modules-8">
+            <div class="sec-panel">
+              <div class="sec-panel-head">
+                <h3> <span><a href="k4333.html">洞察</a></span> <a class="more" href="k4333.html">更多 <i
+                      class="web-icon wi"><svg aria-hidden="true">
+                        <use xlink:href="#wi-arrow-right"></use>
+                      </svg></i></a></h3>
+              </div>
+              <div class="sec-panel-body">
+                <ul class="post-loop post-loop-list cols-4">
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4333.html'>
+                      当网红本人成为网红毒瘤：Vtuber的纸片人模式能 </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4333.html'>
+                      不谋而合的“云计划”，但时代的主题已不再是 </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4333.html'>
+                      短视频下半场，版权争霸战开打，谁将首发“阵 </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4333.html'>
+                      二手平台上的“奇葩”卖家，是一门新的流量生 </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4333.html'>
+                      互联网下半场，ARM云会是新出路吗？ </a> </li>
+
+                  <li class="item"> <span class="date pull-right">2019-11-20</span> <a href='k4333.html'>
+                      NFC对战二维码，谁能笑到最后？ </a> </li>
+
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!--友情链接开始-->
+  <section class="section web-modules modules-gird container">
+    <div class="linkss">
+      <dl>
+        <dt>友情链接：</dt>
+        <dd>
+
+          <a href="http://www.baidu.com/">百度</a>
+
+          <a href="http://www.qq.com/">腾讯</a>
+
+          <a href="http://www.163.com/">网易</a>
+
+        </dd>
+      </dl>
+    </div>
+  </section>
+  <!--友情链接结束-->
+  <footer class="footer">
+    {include file="commons/footer"}
+  </footer>
+
+  <script>var _web_js = {};</script>
+  <script src="static/js/index.js"></script>
+</body>
+
+</html>

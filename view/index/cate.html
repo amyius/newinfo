@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="initial-scale=1.0,maximum-scale=5,width=device-width,viewport-fit=cover">
+  <title class="sttitle">综合资讯动态 - 热点资讯、影视解析、健康知识及前沿动态</title>
+  <meta name="keywords" content="最新资讯, 影视剧情, 锦绣芳华大结局, 健康知识, 社会热点, Gemini争议, 黑龙江工程规划, 港大AI事件, 科技动态, 民生资讯">
+  <meta name="description"
+    content="聚焦最新热点资讯：深度解析《锦绣芳华》大结局，揭秘蒋长扬生死之谜与角色最终命运；追踪科技圈Gemini争议、港大AI制色情照等社会热点；同步黑龙江工程规划变更动态；科普卵巢癌等健康知识及罕见癌症案例，实时更新多元资讯，满足多维度信息需求。">
+  <meta property="og:type" content="webpage">
+  <meta property="og:title" content="综合资讯动态 - 热点资讯、影视解析、健康知识及前沿动态">
+  <meta property="og:description"
+    content="聚焦最新热点资讯：深度解析《锦绣芳华》大结局，揭秘蒋长扬生死之谜与角色最终命运；追踪科技圈Gemini争议、港大AI制色情照等社会热点；同步黑龙江工程规划变更动态；科普卵巢癌等健康知识及罕见癌症案例，实时更新多元资讯，满足多维度信息需求。">
+  <meta property="og:image" content="https://www.thunderflash666.com/favicons.ico">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <link rel="stylesheet" href="/static/css/style.css" media="all">
+  <link rel="icon" href="favicons.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicons.ico">
+  <script src='/static/js/jquery.min.js'></script>
+  <script src='/static/js/icons-2.6.12.js'></script>
+  <!--[if lte IE 9]><script src="http://demo2.92wailian.com/k433/skin/js/update.js"></script><![endif]-->
+</head>
+
+<body class="archive category category-keji category-13 lang-cn">
+  <header class="header header-style-2">
+    {include file="commons/header"}
+  </header>
+
+  <div id="wrap">
+    <div class="banner banner-white j-lazy" style="background-image: url({$main_cover});height:300px;">
+      <div class="banner-inner container">
+        <h1>{$menu_list}</h1>
+      </div>
+    </div>
+    <div class="container wrap">
+      <ol class="breadcrumb">
+        <li class="active"><i class="web-icon wi"></i><a href="index.html">首页</a> >> <a href="">{$menu_list}</a> </li>
+      </ol>
+      <main class="main">
+        <section class="sec-panel sec-panel-default">
+          <div class="sec-panel-body">
+            <ul class="post-loop post-loop-default cols-0" id="post-loop">
+            </ul>
+            <div class="pagebar" id="pagebar">
+            </div>
+          </div>
+        </section>
+      </main>
+      <aside class="sidebar">
+        {include file="commons/relatedinfo"}
+      </aside>
+    </div>
+  </div>
+  <footer class="footer">
+    {include file="commons/footer"}
+  </footer>
+
+
+  <script>var _web_js = {};</script>
+  <script src="/static/js/index.js"></script>
+  <script>
+    $(document).ready(function () {
+      const path = window.location.pathname;
+      const match = path.match(/^\/cate\/(\d+)/);
+      const cateId = match ? +match[1] : 0;
+
+      function fetchData(page = 1) {
+        $.ajax({
+          url: '/cate',
+          type: 'GET',
+          dataType: 'json',
+          data: {
+            id: cateId,
+            page: page
+          },
+          success: function (res) {
+            renderList(res.cate_list);
+            renderPagebar(res.pagination);
+            history.replaceState(null, null, `?page=${page}`);
+          },
+          error: function () {
+            $('#post-loop').html('<li class="item">加载失败，请稍后重试</li>');
+          }
+        });
+      }
+
+      // 首次加载
+      const initPage = +new URLSearchParams(location.search).get('page') || 1;
+      fetchData(initPage);
+
+      function renderList(list) {
+        const html = list.map(item => `
+        <li class="item">
+          <div class="item-img">
+            <a class="item-img-inner" href="/detail/${item.con_id}/${encodeURIComponent(item.title)}"
+              title="${item.title}">
+              <img width="480" height="300"
+                  class="attachment-default size-default wp-post-image j-lazy"
+                  alt="${item.title}"
+                  src="${item.cover}"
+                  loading="lazy"
+                  onerror="this.onerror=null;this.src='${item.img}'">
+            </a>
+          </div>
+          <div class="item-content">
+            <h2 class="item-title">
+              <a href="/detail/${item.con_id}/${encodeURIComponent(item.title)}">${item.title}</a>
+            </h2>
+            <div class="item-excerpt"><p>${item.title}</p></div>
+            <div class="item-meta">
+              <div class="item-meta-li author">
+                <a href="/detail/${item.con_id}/${encodeURIComponent(item.title)}" class="avatar j-user-card">
+                  <span>作者：${item.editor}</span>
+                </a>
+              </div>
+              <span class="item-meta-li date">时间：${item.updatetime}</span>
+              <div class="item-meta-right">
+                <a class="item-meta-li comments">
+                  <i class="web-icon wi">
+                    <svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg>
+                  </i>${item.views}次
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      `).join('');
+        $('.post-loop').html(html);
+      }
+
+      // 渲染分页
+      function renderPagebar(pagebar) {
+        const { current_page, last_page } = pagebar;
+
+        if (last_page <= 1) {
+          $('#pagebar').empty();
+          return;
+        }
+
+        let html = '';
+
+        if (current_page > 1) {
+          html += `<a class="page-numbers" href="javascript:void(0);" data-page="${current_page - 1}">上一页</a>`;
+        }
+
+        let start = Math.max(1, current_page - 2);
+        let end = Math.min(last_page, start + 4);
+
+        if (end - start < 4) {
+          start = Math.max(1, end - 4);
+        }
+
+        if (start > 1) {
+          html += `<a class="page-numbers" href="javascript:void(0);" data-page="1">1</a>`;
+          if (start > 2) html += `<span class="page-numbers dots">...</span>`;
+        }
+
+        for (let i = start; i <= end; i++) {
+          const active = i === current_page ? 'current_page' : '';
+          html += `<a class="page-numbers ${active}" href="javascript:void(0);" data-page="${i}">${i}</a>`;
+        }
+
+        if (end < last_page) {
+          if (end < last_page - 1) html += `<span class="page-numbers dots">...</span>`;
+          html += `<a class="page-numbers" href="javascript:void(0);" data-page="${last_page}">${last_page}</a>`;
+        }
+
+        if (current_page < last_page) {
+          html += `<a class="page-numbers" href="javascript:void(0);" data-page="${current_page + 1}">下一页</a>`;
+        }
+
+        $('#pagebar').html(`<div class="pagination">${html}</div>`);
+      }
+
+      // 点击分页
+      $(document).on('click', '#pagebar .page-numbers', function () {
+        const page = +$(this).data('page');
+        if (page) fetchData(page);
+      });
+    });
+  </script>
+</body>
+
+</html>

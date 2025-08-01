@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="initial-scale=1.0,maximum-scale=5,width=device-width,viewport-fit=cover">
+  <title>{if $list.stitle}{$list.stitle}{else}{$list.title}{/if}</title>
+  <meta name="keywords" content="{if $list.keywords}{$list.keywords}{else}'工业人形机器人与AI智能设备成资本新宠，多领域动态深度聚焦'{/if}">
+  <meta name="description" content="{if $list.description}{$list.description}{else}'本文深度聚焦近期跨领域热点动态：工业场景人形机器人正加速从情感陪伴向硬核作业能力转型，凭借精准操控与场景适配性跃升为资本竞逐的新焦点；Meta通过入股欧洲合作伙伴加码AI智能眼镜赛道，布局下一代智能交互终端的技术突破与市场先机。同时涵盖中东主权财富基金减持全球金融巨头的资本动向、国防部对武器采购传闻的权威回应、MoonBit编程语言的技术特性与应用场景科普，以及多部热门影视作品的剧情亮点与行业反响，全方位呈现科技迭代、资本流动、军事动态与文化潮流的最新态势。'{/if}">
+  <meta property="og:type" content="webpage">
+  <meta property="og:title" content="{if $list.stitle}{$list.stitle}{else}{$list.title}{/if}">
+  <meta property="og:description"
+    content="{if $list.description}{$list.description}{else}'本文深度聚焦近期跨领域热点动态：工业场景人形机器人正加速从情感陪伴向硬核作业能力转型，凭借精准操控与场景适配性跃升为资本竞逐的新焦点；Meta通过入股欧洲合作伙伴加码AI智能眼镜赛道，布局下一代智能交互终端的技术突破与市场先机。同时涵盖中东主权财富基金减持全球金融巨头的资本动向、国防部对武器采购传闻的权威回应、MoonBit编程语言的技术特性与应用场景科普，以及多部热门影视作品的剧情亮点与行业反响，全方位呈现科技迭代、资本流动、军事动态与文化潮流的最新态势。'{/if}">
+  <meta property="og:image" content="https://www.thunderflash666.com/favicons.ico">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <link rel="stylesheet" href="/static/css/style.css" media="all">
+  <script src='/static/js/jquery.min.js'></script>
+  <script src='/static/js/icons-2.6.12.js'></script>
+  <link rel="icon" href="favicons.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicons.ico">
+  <!--[if lte IE 9]><script src="http://demo2.92wailian.com/k433/skin/js/update.js"></script><![endif]-->
+</head>
+
+<body class="post-template-default single single-post postid-607 single-format-standard lang-cn">
+  <header class="header header-style-2">
+    {include file="commons/header"}
+  </header>
+
+  <div id="wrap">
+    <div class="wrap container">
+      <ol class="breadcrumb">
+        <li class="active"><i class="web-icon wi"></i><a href="index.html">首页</a> >> <a href="k43310.html"></a> </li>
+      </ol>
+      <main class="main">
+        <article id="post-607"
+          class="post-607 post type-post status-publish format-standard has-post-thumbnail hentry category-keji tag-19 tag-141">
+          <div class="entry">
+            <div class="entry-head">
+              <h1 class="entry-title">{$list.title}</h1>
+              <div class="entry-info"> <span class="vcard"> <a class="nickname url fn j-user-card">admin</a> </span>
+                <span class="dot">•</span>
+                <time class="entry-date published"> {$list.updatetime}</time>
+                <span class="dot">•</span> <span></span>
+              </div>
+            </div>
+            <div class="entry-content" id="maximg">
+              {$list.content}
+            </div>
+            <div class="entry-footer">
+              <div class="entry-tag"></div>
+              <div class="entry-page">
+                <div class="entry-page-prev j-lazy" style="background-image: url({$prev.cover});"> <a
+                    href='/detail/{$prev.con_id}/{$prev.title}'><span>{$prev.title}</span></a>
+                  <div class="entry-page-info"> <span class="pull-left"><i class="web-icon wi"><svg aria-hidden="true">
+                          <use xlink:href="#wi-arrow-left-double"></use>
+                        </svg></i> 上一篇</span> </div>
+                </div>
+                <div class="entry-page-next j-lazy" style="background-image: url({$next.cover});"> <a
+                    href='/detail/{$next.con_id}/{$next.title}'><span>{$next.title}</span></a>
+                  <div class="entry-page-info"> <span class="pull-right">下一篇 <i class="web-icon wi"><svg
+                          aria-hidden="true">
+                          <use xlink:href="#wi-arrow-right-double"></use>
+                        </svg></i></span> </div>
+                </div>
+              </div>
+              <h3 class="entry-related-title">相关推荐</h3>
+              <ul class="entry-related cols-3 post-loop post-loop-image">
+                {foreach $content as $item}
+                <li class="item">
+                  <div class="item-inner">
+                    <div class="item-img"> <a class="item-thumb" href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}"> <img
+                          width="480" height="300"
+                          class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy"
+                          alt="{$item.title}" src="{$item.cover}" loading="lazy"
+                                 onerror="this.onerror=null;this.src='{$item.img}'"> </a> </div>
+                    <h4 class="item-title"> <a href="/detail/{$item.con_id}/{$item.title}"> {$item.title} </a></h4>
+                    <div class="item-meta-author"> <a lass="avatar j-user-card"> <span>浏览:{$item.views}</span> </a>
+                      <div class="item-meta-right">{$item.updatetime}</div>
+                    </div>
+                  </div>
+                </li>
+                {/foreach}
+                
+              </ul>
+            </div>
+          </div>
+        </article>
+      </main>
+      <aside class="sidebar">
+        {include file="commons/relatedinfo"}
+      </aside>
+    </div>
+  </div>
+  <footer class="footer">
+    {include file="commons/footer"}
+  </footer>
+
+
+
+  <script>var _web_js = {};</script>
+  <script src="/static/js/index.js"></script>
+</body>
+
+</html>

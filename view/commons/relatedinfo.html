@@ -1,0 +1,34 @@
+<div class="widget widget_post_thumb">
+    <h3 class="widget-title"><span>最新文章</span></h3>
+    <ul id="newarticle">
+        {foreach $latest as $item}
+        <li class="item">
+            <div class="item-img"> <a class="item-img-inner" href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}"> <img
+                        width="480" height="300" class="attachment-default size-default wp-post-image j-lazy"
+                        alt="{$item.title}" src="{$item.cover}" loading="lazy"
+                                 onerror="this.onerror=null;this.src='{$item.img}'" > </a></div>
+            <div class="item-content">
+                <p class="item-title"><a href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}">{$item.title}</a>
+                </p>
+                <p class="item-date">{$item.updatetime}</p>
+            </div>
+        </li>
+        {/foreach}
+    </ul>
+</div>
+<div class="widget widget_lastest_products">
+    <h3 class="widget-title"><span>相关动态</span></h3>
+    <ul class="p-list">
+        {foreach $dynamics as $item}
+        <li class="col-xs-24 col-md-12 p-item">
+            <div class="p-item-wrap"> <a class="thumb" href="/detail/{$item.con_id}/{$item.title}"> <img width="480" height="300"
+                        class="attachment-default size-default wp-post-image j-lazy" alt="{$item.title}"
+                        src="{$item.cover}" loading="lazy"
+                                 onerror="this.onerror=null;this.src='{$item.img}'"> </a>
+                <h4 class="title"> <a href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}"> {$item.title} </a>
+                </h4>
+            </div>
+        </li>
+        {/foreach}
+    </ul>
+</div>
