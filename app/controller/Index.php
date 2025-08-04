@@ -41,7 +41,7 @@ class Index extends BaseController
         $handle = function (&$row) use ($domain) {
             $row['cover']      = $row['cover'] ?: $domain . '/static/image/logos.jpeg';
             $row['img']        = $domain . '/static/img/logos.jpeg';
-            $row['views']      = (int)($row['views'] ?? 0);
+            $row['views']      = mt_rand(1, 1000);
             $row['updatetime'] = date('Y-m-d', strtotime($row['updatetime']));
         };
         array_walk($content, $handle);
@@ -83,10 +83,13 @@ class Index extends BaseController
             ->order('con_id', 'desc')
             ->find();
 
+        $prev['cover'] = $this->request->domain() . $prev['cover'] ?? $defaultCover;
+
         $next = Db::name('lt_content')
             ->where('con_id', '>', $conid)
             ->order('con_id', 'asc')
             ->find();
+        $next['cover'] = $this->request->domain() . $next['cover'] ?? $defaultCover;
         $response = [
             'list' => $list,
             'menu' => $menu,
@@ -112,15 +115,15 @@ class Index extends BaseController
             $query = Db::name('lt_content')
                 ->where('con_mid', $menuId)
                 ->order('updatetime', 'desc');
-            
+
             $paginate = $query->paginate($pageSize, false, ['page' => $page]);
 
             $list = $paginate->items();
             foreach ($list as &$item) {
                 $item['cover']      = $item['cover'] ?: $defaultCover;
                 $item['img']        = $defaultCover;
-                $item['updatetime'] = date('Y-m-d', strtotime($item['updatetime']));
-                $item['views'] = mt_rand(1, 100);
+                $item['updatetime'] = date('Y-m-d', strtotime($item['updatetime'])) ?? date("Y-m-d");
+                $item['views'] = mt_rand(1, 1000);
             }
             unset($item);
 
@@ -216,7 +219,7 @@ class Index extends BaseController
                     'editor' => $item['editor'] ?? '匿名作者',
                     'updatetime' => date('Y-m-d', strtotime($item['updatetime'])),
                     'img' => empty($item['cover']) ? $defaultCover : $item['cover'],
-                    'views' => $item['views'] ?? mt_rand(1, 100),
+                    'views' => $item['views'] ?? mt_rand(1, 1000),
                     'cover' => empty($item['cover']) ? $defaultCover : $item['cover']
                 ];
             }, $list->items());
@@ -252,8 +255,8 @@ class Index extends BaseController
         $format = function (&$row) use ($defaultCover) {
             $row['cover'] = !empty($row['cover']) ? $row['cover'] : $defaultCover;
             $row['img'] = $defaultCover;
-            $row['views'] = (int)($row['views'] ?? 0);
-            $row['updatetime'] = !empty($row['updatetime']) ? date('Y-m-d', strtotime($row['updatetime'])) : date('Y-m-d');
+            $row['views'] = mt_rand(1, 1000);
+            $row['updatetime'] =  date('Y-m-d', strtotime($row['updatetime']));
         };
 
         $content = Db::name('lt_con2website')
