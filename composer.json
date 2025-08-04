@@ -24,7 +24,9 @@
         "topthink/framework": "^6.1.0",
         "topthink/think-orm": "^2.0",
         "topthink/think-filesystem": "^1.0",
-        "topthink/think-view": "^1.0"
+        "topthink/think-view": "^1.0",
+        "erusev/parsedown": "^1.7",
+        "cebe/markdown": "^1.2"
     },
     "require-dev": {
         "symfony/var-dumper": "^4.2",

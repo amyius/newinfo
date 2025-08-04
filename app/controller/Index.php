@@ -6,6 +6,7 @@ use app\BaseController;
 use think\facade\Log;
 use app\common\Helper;
 use think\facade\Db;
+use Parsedown;
 
 class Index extends BaseController
 {
@@ -101,6 +102,10 @@ class Index extends BaseController
         $list['cover'] = empty($list['cover']) ? $defaultCover : $list['cover'];
         $list['img'] = $defaultCover;
         $list['updatetime'] = date('Y-m-d', strtotime($list['updatetime']));
+
+        $parser = new \cebe\markdown\Markdown();
+        $list['content'] = $parser->parse($list['content'] ?? '');
+
         $helper = new \app\common\Helper;
         $websiteId = $helper->getWebsiteId();
 
@@ -134,6 +139,7 @@ class Index extends BaseController
         }
         $next = $next ?: [];
         $next['cover'] = $this->request->domain() . ($next['cover'] ?? $defaultCover);
+
         $response = [
             'list' => $list,
             'menu' => $menu,
