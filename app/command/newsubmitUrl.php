@@ -49,7 +49,7 @@ class newsubmitUrl extends Command
                         ->select();
 
                     foreach ($shortplay as $value) {
-                        $urlList[] = 'https://www.thunderflash666.com/detail/' . $value['id'] . '/' . urlencode($value['title']);
+                        $urlList[] = 'https://www.thunderflash666.com/detail/' . $value['con_id'] . '/' . $value['title'];
 
                         if (count($urlList) >= 100) {
                             break 2;
