@@ -6,5 +6,6 @@ return [
     // 指令定义
     'commands' => [
         'buildhtml' => \app\command\BuildHtml::class,
+        'newsubmitUrl' => \app\command\newsubmitUrl::class
     ],
 ];
