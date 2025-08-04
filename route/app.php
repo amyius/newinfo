@@ -10,6 +10,7 @@
 // +----------------------------------------------------------------------
 use think\facade\Route;
 
+Route::get('sitemap.xml', 'Sitemap/index');
 Route::group('', function () {
     Route::get('', 'Index/index');
     Route::any('/detail/:id/:name?', 'Index/detail');

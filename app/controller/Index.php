@@ -83,13 +83,25 @@ class Index extends BaseController
             ->order('con_id', 'desc')
             ->find();
 
-        $prev['cover'] = $this->request->domain() . $prev['cover'] ?? $defaultCover;
+        if (empty($prev)) {
+            $prev = Db::name('lt_content')
+                ->order('con_id', 'desc')
+                ->find();
+        }
+        $prev = $prev ?: [];
+        $prev['cover'] = $this->request->domain() . ($prev['cover'] ?? $defaultCover);
 
         $next = Db::name('lt_content')
             ->where('con_id', '>', $conid)
             ->order('con_id', 'asc')
             ->find();
-        $next['cover'] = $this->request->domain() . $next['cover'] ?? $defaultCover;
+        if (empty($next)) {
+            $next = Db::name('lt_content')
+                ->order('con_id', 'asc')
+                ->find();
+        }
+        $next = $next ?: [];
+        $next['cover'] = $this->request->domain() . ($next['cover'] ?? $defaultCover);
         $response = [
             'list' => $list,
             'menu' => $menu,
@@ -142,13 +154,20 @@ class Index extends BaseController
         $menuTitle = Db::name('lt_menu')
             ->where('menu_id', $menuId)
             ->value('menu_title');
-
+        $menuDescription = Db::name('lt_menu')
+            ->where('menu_id', $menuId)
+            ->value('menu_description');
+        $menuKeywords = Db::name('lt_menu')
+            ->where('menu_id', $menuId)
+            ->value('menu_keywords');
         $mainCover = $list[0]['cover'] ?? $defaultCover;
         $menu = $helper->menuSet($websiteId);
         $relatedInfo = $this->relatedInfo($websiteId, $this->request->domain());
         $latest = $relatedInfo['latest'];
         $dynamics = $relatedInfo['dynamics'];
         $response = [
+            'menuDescription' => $menuDescription,
+            'menuKeywords' => $menuKeywords,
             'menu' => $menu,
             'latest' => $latest,
             'dynamics' => $dynamics,

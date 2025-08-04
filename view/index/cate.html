@@ -6,14 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="initial-scale=1.0,maximum-scale=5,width=device-width,viewport-fit=cover">
-  <title class="sttitle">综合资讯动态 - 热点资讯、影视解析、健康知识及前沿动态</title>
-  <meta name="keywords" content="最新资讯, 影视剧情, 锦绣芳华大结局, 健康知识, 社会热点, Gemini争议, 黑龙江工程规划, 港大AI事件, 科技动态, 民生资讯">
-  <meta name="description"
-    content="聚焦最新热点资讯：深度解析《锦绣芳华》大结局，揭秘蒋长扬生死之谜与角色最终命运；追踪科技圈Gemini争议、港大AI制色情照等社会热点；同步黑龙江工程规划变更动态；科普卵巢癌等健康知识及罕见癌症案例，实时更新多元资讯，满足多维度信息需求。">
-  <meta property="og:type" content="webpage">
-  <meta property="og:title" content="综合资讯动态 - 热点资讯、影视解析、健康知识及前沿动态">
-  <meta property="og:description"
-    content="聚焦最新热点资讯：深度解析《锦绣芳华》大结局，揭秘蒋长扬生死之谜与角色最终命运；追踪科技圈Gemini争议、港大AI制色情照等社会热点；同步黑龙江工程规划变更动态；科普卵巢癌等健康知识及罕见癌症案例，实时更新多元资讯，满足多维度信息需求。">
+  <title class="sttitle"><?php echo isset($menu_list) ? $menu_list : '综合资讯动态 - 热点资讯、影视解析、健康知识及前沿动态'; ?></title>
+<meta name="keywords" content="<?php echo isset($menuKeywords) ? $menuKeywords : '最新资讯, 影视剧情, 锦绣芳华大结局, 健康知识, 社会热点, Gemini争议, 黑龙江工程规划, 港大AI事件, 科技动态, 民生资讯'; ?>">
+<meta name="description" content="<?php echo isset($menuDescription) ? $menuDescription : '聚焦最新热点资讯：深度解析《锦绣芳华》大结局，揭秘蒋长扬生死之谜与角色最终命运；追踪科技圈Gemini争议、港大AI制色情照等社会热点；同步黑龙江工程规划变更动态；科普卵巢癌等健康知识及罕见癌症案例，实时更新多元资讯，满足多维度信息需求。'; ?>">
+<meta property="og:title" content="<?php echo isset($menu_list) ? $menu_list : '综合资讯动态 - 热点资讯、影视解析、健康知识及前沿动态'; ?>">
+<meta property="og:description" content="<?php echo isset($menuDescription) ? $menuDescription : '聚焦最新热点资讯：深度解析《锦绣芳华》大结局，揭秘蒋长扬生死之谜与角色最终命运；追踪科技圈Gemini争议、港大AI制色情照等社会热点；同步黑龙江工程规划变更动态；科普卵巢癌等健康知识及罕见癌症案例，实时更新多元资讯，满足多维度信息需求。'; ?>">
   <meta property="og:image" content="https://www.thunderflash666.com/favicons.ico">
   <meta name="applicable-device" content="pc,mobile">
   <meta http-equiv="Cache-Control" content="no-transform">
@@ -22,6 +19,20 @@
   <link rel="shortcut icon" href="favicons.ico">
   <script src='/static/js/jquery.min.js'></script>
   <script src='/static/js/icons-2.6.12.js'></script>
+  <style>
+    .page-numbers:not(.current_page):hover {
+      background-color: #f5f5f5;
+      border-color: #ccc;
+    }
+
+    .page-numbers.current_page {
+      background-color: #000000;
+      border-color: #000000;
+      color: white;
+      font-weight: bold;
+      cursor: default;
+    }
+  </style>
   <!--[if lte IE 9]><script src="http://demo2.92wailian.com/k433/skin/js/update.js"></script><![endif]-->
 </head>
 
@@ -144,14 +155,14 @@
         let html = '';
 
         if (current_page > 1) {
-          html += `<a class="page-numbers" href="javascript:void(0);" data-page="${current_page - 1}">上一页</a>`;
+          html += `<a class="page-numbers" href="javascript:void(0);" data-page="${current_page - 1}"> << </a>`;
         }
 
         let start = Math.max(1, current_page - 2);
         let end = Math.min(last_page, start + 4);
 
-        if (end - start < 4) {
-          start = Math.max(1, end - 4);
+        if (end - start < 3) {
+          start = Math.max(1, end - 3);
         }
 
         if (start > 1) {
@@ -170,7 +181,7 @@
         }
 
         if (current_page < last_page) {
-          html += `<a class="page-numbers" href="javascript:void(0);" data-page="${current_page + 1}">下一页</a>`;
+          html += `<a class="page-numbers" href="javascript:void(0);" data-page="${current_page + 1}"> >> </a>`;
         }
 
         $('#pagebar').html(`<div class="pagination">${html}</div>`);
