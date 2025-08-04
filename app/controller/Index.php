@@ -38,6 +38,30 @@ class Index extends BaseController
         $latest = $relatedInfo['latest'];
         $dynamics = $relatedInfo['dynamics'];
         $content = $relatedInfo['content'];
+        $middlecarousel = Db::name('lt_con2website')
+            ->alias('c2w')
+            ->join('lt_content c', 'c2w.cw_id = c.con_id')
+            ->where(['c2w.cw_website_id' => $websiteId])
+            ->field('c.*')
+            ->orderRaw('RAND()')
+            ->limit(15)
+            ->select()
+            ->toArray();
+        $bottomnav = Db::name('lt_menu')
+            ->where('menu_pid', 0)
+            ->where('menu_website_id', $websiteId)
+            ->where('menu_istop', 2)
+            ->select()
+            ->toArray();
+
+        foreach ($bottomnav as &$menus) {
+            $menus['contents'] = Db::name('lt_content')
+                ->where('con_mid', $menus['menu_id'])
+                ->limit(10)
+                ->select()
+                ->toArray();
+        }
+        unset($menus);
         $handle = function (&$row) use ($domain) {
             $row['cover']      = $row['cover'] ?: $domain . '/static/image/logos.jpeg';
             $row['img']        = $domain . '/static/img/logos.jpeg';
@@ -47,13 +71,21 @@ class Index extends BaseController
         array_walk($content, $handle);
         array_walk($banner, $handle);
         array_walk($popolar, $handle);
+        array_walk($middlecarousel, $handle);
+
+        foreach ($bottomnav as $item) {
+            array_walk($item['contents'], $handle);
+        }
+
         $response = [
             'content' => $content,
             'banner' => $banner,
             'popolar' => $popolar,
             'menu' => $menu,
             'latest' => $latest,
-            'dynamics' => $dynamics
+            'dynamics' => $dynamics,
+            'secondcontent' => $bottomnav,
+            'middlecarousel' => $middlecarousel
         ];
         return view('index', $response);
     }
