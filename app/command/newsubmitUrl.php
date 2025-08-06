@@ -44,7 +44,7 @@ class newsubmitUrl extends Command
                 if ($remainingSlots > 0) {
                     $shortplay = Db::name('lt_content')
                         ->where('con_mid', $item['menu_id'])
-                        ->order('con_id desc')
+                        ->order('updatetime desc')
                         ->limit($remainingSlots)
                         ->select();
 
