@@ -20,51 +20,63 @@ class newsubmitUrl extends Command
         $this->setName('newsubmitUrl')
             ->setDescription('the newsubmitUrl command');
     }
+
     protected function execute(Input $input, Output $output)
     {
         try {
             $urlList = [];
+            $siteUrl = 'https://www.thunderflash666.com';
+            $urlList[] = $siteUrl; 
 
-            $cates = Db::name('lt_menu')
-                ->distinct(true)
+            $menuIds = Db::name('lt_menu')
                 ->where('menu_website_id', 1)
                 ->order('menu_id desc')
-                ->select();
+                ->column('menu_id');
 
-            $urlList[] = 'https://www.thunderflash666.com';
+            if (empty($menuIds)) {
+                throw new \RuntimeException('No menu categories found for this website');
+            }
 
-            foreach ($cates as $item) {
+            $randomCount = 70;
+            $newestCount = 30;
+
+            $randomContents = Db::name('lt_content')
+                ->where('con_mid', 'in', $menuIds)
+                ->orderRaw('RAND()')
+                ->limit($randomCount)
+                ->select()
+                ->toArray();
+
+            $newestContents = Db::name('lt_content')
+                ->where('con_mid', 'in', $menuIds)
+                ->order('updatetime desc')
+                ->limit($newestCount)
+                ->select()
+                ->toArray(); 
+
+            $allContents = array_merge($randomContents, $newestContents);
+            shuffle($allContents);
+
+            $categoryCount = min(20, count($menuIds));
+            for ($i = 0; $i < $categoryCount && count($urlList) < 100; $i++) {
+                $menuId = $menuIds[$i];
+                $urlList[] = $siteUrl . '/cate/' . $menuId . '?page=1';
+            }
+
+            foreach ($allContents as $content) {
                 if (count($urlList) >= 100) {
                     break;
                 }
-
-                $urlList[] = 'https://www.thunderflash666.com/cate/' . $item['menu_id'] . '/' . $item['menu_title'] . '?page=1';
-
-                $remainingSlots = 100 - count($urlList);
-                if ($remainingSlots > 0) {
-                    $shortplay = Db::name('lt_content')
-                        ->where('con_mid', $item['menu_id'])
-                        ->order('updatetime desc')
-                        ->limit($remainingSlots)
-                        ->select();
-
-                    foreach ($shortplay as $value) {
-                        $urlList[] = 'https://www.thunderflash666.com/detail/' . $value['con_id'] . '/' . $value['title'];
-
-                        if (count($urlList) >= 100) {
-                            break 2;
-                        }
-                    }
-                }
+                $urlList[] = $siteUrl . '/detail/' . $content['con_id'] . '/' . $content['title'];
             }
 
             $urlList = array_slice($urlList, 0, 100);
 
             $data = [
-                'siteUrl' => 'https://www.thunderflash666.com',
+                'siteUrl' => $siteUrl,
                 'urlList' => $urlList
             ];
-
+            dump($data);exit;
             $output->writeln('准备提交URL数量：' . count($urlList));
 
             $json = json_encode($data, JSON_UNESCAPED_SLASHES);
@@ -91,7 +103,7 @@ class newsubmitUrl extends Command
 
             $result = json_decode($response, true);
 
-            if (isset($result['d'])) {
+            if (isset($result['d']) && $result['d'] == null) {
                 $output->writeln('<info>提交成功！已提交URL数量：' . count($urlList) . '</info>');
                 $output->writeln('Bing API响应：' . print_r($result['d'], true));
             } else {
