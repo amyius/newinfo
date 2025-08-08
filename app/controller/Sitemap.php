@@ -69,8 +69,8 @@ class Sitemap extends BaseController
                             <url>
                                 <loc>' . $articleUrl . '</loc>
                                 <lastmod>' . date('Y-m-d') . '</lastmod>
-                                <changefreq>weekly</changefreq>
-                                <priority>0.6</priority>
+                                <changefreq>daily</changefreq>
+                                <priority>0.8</priority>
                             </url>');
                         }
                     });
