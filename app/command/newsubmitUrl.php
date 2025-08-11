@@ -76,7 +76,7 @@ class newsubmitUrl extends Command
                 'siteUrl' => $siteUrl,
                 'urlList' => $urlList
             ];
-            dump($data);exit;
+            
             $output->writeln('准备提交URL数量：' . count($urlList));
 
             $json = json_encode($data, JSON_UNESCAPED_SLASHES);
