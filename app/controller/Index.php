@@ -65,7 +65,7 @@ class Index extends BaseController
         unset($menus);
         $handle = function (&$row) use ($domain) {
             $row['cover']      = $row['cover'] ?: $domain . '/static/image/logos.jpeg';
-            $row['img']        = $domain . '/static/img/logos.jpeg';
+            $row['img']        = $domain . '/static/image/logos.jpeg';
             $row['views']      = mt_rand(1, 1000);
             $row['updatetime'] = date('Y-m-d', strtotime($row['updatetime']));
         };
@@ -95,7 +95,7 @@ class Index extends BaseController
     {
         $conid = $this->request->param('id');
         $domain = $this->request->domain();
-        $defaultCover = $domain . '/static/img/logos.jpeg';
+        $defaultCover = $domain . '/static/image/logos.jpeg';
         $helper = new Helper();
 
         $list = $helper->getRecordByCondition('lt_content', 'con_id=' . $conid);
