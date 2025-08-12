@@ -67,7 +67,7 @@ class newsubmitUrl extends Command
                 if (count($urlList) >= 100) {
                     break;
                 }
-                $urlList[] = $siteUrl . '/detail/' . $content['con_id'] . '/' . $content['title'];
+                $urlList[] = $siteUrl . '/detail/' . $content['con_id'];
             }
 
             $urlList = array_slice($urlList, 0, 100);
