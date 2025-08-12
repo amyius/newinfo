@@ -204,6 +204,8 @@ class Index extends BaseController
         $latest = $relatedInfo['latest'];
         $dynamics = $relatedInfo['dynamics'];
         $response = [
+            'menuId' => $menuId,
+            'menuTitle' => $menuTitle,
             'menuDescription' => $menuDescription,
             'menuKeywords' => $menuKeywords,
             'menu' => $menu,
