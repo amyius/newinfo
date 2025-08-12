@@ -323,7 +323,7 @@ class Index extends BaseController
             ->join('lt_content c', 'c2w.cw_id = c.con_id')
             ->where(['c2w.cw_website_id' => $websiteId, 'c2w.is_recommend' => 1])
             ->field('c.*, c2w.views')
-            ->order('c2w.weight DESC, c.updatetime DESC')
+            ->order('c.updatetime DESC')
             ->limit(30)
             ->select()
             ->toArray();
