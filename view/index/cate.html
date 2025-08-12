@@ -126,10 +126,8 @@
           <div class="item-img">
             <a class="item-img-inner" href="/detail/${item.con_id}/${encodeURIComponent(item.title)}"
               title="${item.title}">
-              <img width="480" height="300"
+              <img src="${item.cover}" alt="${item.title}" width="480" height="300"
                   class="attachment-default size-default wp-post-image j-lazy"
-                  alt="${item.title}"
-                  src="${item.cover}"
                   loading="lazy"
                   onerror="this.onerror=null;this.src='${item.img}'">
             </a>

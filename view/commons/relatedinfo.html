@@ -3,12 +3,14 @@
     <ul id="newarticle">
         {foreach $latest as $item}
         <li class="item">
-            <div class="item-img"> <a class="item-img-inner" href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}"> <img
-                        width="480" height="300" class="attachment-default size-default wp-post-image j-lazy"
-                        alt="{$item.title}" src="{$item.cover}" loading="lazy"
-                                 onerror="this.onerror=null;this.src='{$item.img}'" > </a></div>
+            <div class="item-img"> <a class="item-img-inner" href="/detail/{$item.con_id}/{$item.title}"
+                    title="{$item.title}"> <img width="480" height="300"
+                        class="attachment-default size-default wp-post-image j-lazy" src="{$item.cover}"
+                        alt="{$item.title}" loading="lazy" onerror="this.onerror=null;this.src='{$item.img}'"> </a>
+            </div>
             <div class="item-content">
-                <p class="item-title"><a href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}">{$item.title}</a>
+                <p class="item-title"><a href="/detail/{$item.con_id}/{$item.title}"
+                        title="{$item.title}">{$item.title}</a>
                 </p>
                 <p class="item-date">{$item.updatetime}</p>
             </div>
@@ -21,11 +23,11 @@
     <ul class="p-list">
         {foreach $dynamics as $item}
         <li class="col-xs-24 col-md-12 p-item">
-            <div class="p-item-wrap"> <a class="thumb" href="/detail/{$item.con_id}/{$item.title}"> <img width="480" height="300"
-                        class="attachment-default size-default wp-post-image j-lazy" alt="{$item.title}"
-                        src="{$item.cover}" loading="lazy"
-                                 onerror="this.onerror=null;this.src='{$item.img}'"> </a>
-                <h4 class="title"> <a href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}"> {$item.title} </a>
+            <div class="p-item-wrap"> <a class="thumb" href="/detail/{$item.con_id}/{$item.title}"> <img width="480"
+                        height="300" class="attachment-default size-default wp-post-image j-lazy" src="{$item.cover}"
+                        alt="{$item.title}" loading="lazy" onerror="this.onerror=null;this.src='{$item.img}'"> </a>
+                <h4 class="title"> <a href="/detail/{$item.con_id}/{$item.title}" title="{$item.title}"> {$item.title}
+                    </a>
                 </h4>
             </div>
         </li>
