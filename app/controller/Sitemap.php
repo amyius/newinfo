@@ -63,7 +63,7 @@ class Sitemap extends BaseController
                         foreach ($articles as $article) {
                             $safeTitle = htmlspecialchars($article['title'] ?? '', ENT_QUOTES, 'UTF-8');
                             $articleUrl = htmlspecialchars($baseUrl, ENT_QUOTES, 'UTF-8') .
-                                '/detail/' . $article['con_id'] . '/' . $safeTitle;
+                                '/detail/' . $article['con_id'];
 
                             fwrite($handle, '
                             <url>
