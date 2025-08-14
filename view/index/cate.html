@@ -66,7 +66,7 @@
     </div>
     <div class="container wrap">
       <ol class="breadcrumb">
-        <li class="active"><i class="web-icon wi"></i><a href="/">首页</a> >> <a href="">{$menu_list}</a> </li>
+        <li class="active"><i class="web-icon wi"></i><a href="/">首页</a> >> <a href="/cate/{$menuId}">{$menu_list}</a> </li>
       </ol>
       <main class="main">
         <section class="sec-panel sec-panel-default">
@@ -124,7 +124,7 @@
         const html = list.map(item => `
         <li class="item">
           <div class="item-img">
-            <a class="item-img-inner" href="/detail/${item.con_id}/${encodeURIComponent(item.title)}"
+            <a class="item-img-inner" href="/detail/${item.con_id}}"
               title="${item.title}">
               <img src="${item.cover}" alt="${item.title}" width="480" height="300"
                   class="attachment-default size-default wp-post-image j-lazy"
@@ -134,12 +134,12 @@
           </div>
           <div class="item-content">
             <h2 class="item-title">
-              <a href="/detail/${item.con_id}/${encodeURIComponent(item.title)}">${item.title}</a>
+              <a href="/detail/${item.con_id}">${item.title}</a>
             </h2>
             <div class="item-excerpt"><p>${item.title}</p></div>
             <div class="item-meta">
               <div class="item-meta-li author">
-                <a href="/detail/${item.con_id}/${encodeURIComponent(item.title)}" class="avatar j-user-card">
+                <a href="/detail/${item.con_id}" class="avatar j-user-card">
                   <span>作者：${item.editor}</span>
                 </a>
               </div>
