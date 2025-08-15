@@ -64,8 +64,8 @@ class Index extends BaseController
         }
         unset($menus);
         $handle = function (&$row) use ($domain) {
-            $row['cover']      = $row['cover'] ?: $domain . '/static/image/logos.jpeg';
-            $row['img']        = $domain . '/static/image/logos.jpeg';
+            $row['cover']      = $row['cover'] ?: $domain . '/static/image/defaultcover.png';
+            $row['img']        = $domain . '/static/image/defaultcover.png';
             $row['views']      = mt_rand(1, 1000);
             $row['updatetime'] = date('Y-m-d', strtotime($row['updatetime']));
         };
@@ -95,7 +95,7 @@ class Index extends BaseController
     {
         $conid = $this->request->param('id');
         $domain = $this->request->domain();
-        $defaultCover = $domain . '/static/image/logos.jpeg';
+        $defaultCover = $domain . '/static/image/defaultcover.png';
         $helper = new Helper();
 
         $list = $helper->getRecordByCondition('lt_content', 'con_id=' . $conid);
@@ -157,7 +157,7 @@ class Index extends BaseController
     {
         $menuId   = (int)$this->request->param('id', 3);
         $page     = (int)$this->request->param('page', 1);
-        $defaultCover = $this->request->domain() . '/static/image/logos.jpeg';
+        $defaultCover = $this->request->domain() . '/static/image/defaultcover.png';
         $helper = new \app\common\Helper;
         $websiteId = $helper->getWebsiteId();
         if ($this->request->isAjax()) {
@@ -268,7 +268,7 @@ class Index extends BaseController
                 ]);
 
             $domain = $this->request->domain();
-            $defaultCover = $domain . '/static/image/logos.jpeg';
+            $defaultCover = $domain . '/static/image/defaultcover.png';
 
             $searchList = array_map(function ($item) use ($defaultCover) {
                 return [
@@ -309,7 +309,7 @@ class Index extends BaseController
      */
     private static function relatedInfo(int $websiteId, string $domain): array
     {
-        $defaultCover = $domain . '/static/image/logos.jpeg';
+        $defaultCover = $domain . '/static/image/defaultcover.png';
 
         $format = function (&$row) use ($defaultCover) {
             $row['cover'] = !empty($row['cover']) ? $row['cover'] : $defaultCover;
