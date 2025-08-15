@@ -7,7 +7,7 @@
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="initial-scale=1.0,maximum-scale=5,width=device-width,viewport-fit=cover">
   <title>{if $list.stitle}{$list.stitle}{else}{$list.title}{/if}</title>
-  <meta name="keywords" content="{if $list.keywords}{$list.keywords}{else}'工业人形机器人与AI智能设备成资本新宠，多领域动态深度聚焦'{/if}">
+  <meta name="keywords" content="{if $list.keywords}{$list.keywords}{else}'工业人形机器人与AI智能设备成资本新宠，多领域动态深度聚焦,thunderflash666'{/if}">
   <meta name="description"
     content="{if $list.description}{$list.description}{else}'本文深度聚焦近期跨领域热点动态：工业场景人形机器人正加速从情感陪伴向硬核作业能力转型，凭借精准操控与场景适配性跃升为资本竞逐的新焦点；Meta通过入股欧洲合作伙伴加码AI智能眼镜赛道，布局下一代智能交互终端的技术突破与市场先机。同时涵盖中东主权财富基金减持全球金融巨头的资本动向、国防部对武器采购传闻的权威回应、MoonBit编程语言的技术特性与应用场景科普，以及多部热门影视作品的剧情亮点与行业反响，全方位呈现科技迭代、资本流动、军事动态与文化潮流的最新态势。'{/if}">
   <meta property="og:type" content="webpage">
@@ -21,15 +21,26 @@
   <link rel="canonical" href="https://www.thunderflash666.com/detail/{$list.con_id}">
   <script src='/static/js/jquery.min.js'></script>
   <script src='/static/js/icons-2.6.12.js'></script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "雷电快讯",
-      "headline": "{$list.title}",
-      "image": ["{$list.cover}"],
-      "datePublished": "{$list.updatetime}",
-      "dateModified": "{$list.updatetime}"
-    }
+  <!-- 结构化数据 -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "thunderflash666.com",
+            "name": "{$list.title}",
+            "url": "https://www.thunderflash666.com/detail/{$list.con_id}",
+            "image": "{$list.cover}",
+            "description": "{$list.description}",
+            "genre": "{$list.tags}",
+            "datePublished": "{$list.updatetime}",
+            "publisher": {
+                "@type": "Organization",
+                "name": "thunderflash666",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.thunderflash666.com/favicons.ico"
+                }
+            }
+        }
     </script>
 
   <!-- Google tag (gtag.js) -->
@@ -88,7 +99,8 @@
   <div id="wrap">
     <div class="wrap container">
       <ol class="breadcrumb">
-        <li class="active"><i class="web-icon wi"></i><a href="/">首页</a> >> <a href="k43310.html"></a> </li>
+        <li class="active"><i class="web-icon wi"></i><a href="/">首页</a> >> <a href=""></a> </li>
+
       </ol>
       <main class="main">
         <article id="post-607"

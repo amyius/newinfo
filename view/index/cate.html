@@ -17,13 +17,30 @@
   <meta property="og:description"
     content="<?php echo isset($menuDescription) ? $menuDescription : '聚焦最新热点资讯：深度解析《锦绣芳华》大结局，揭秘蒋长扬生死之谜与角色最终命运；追踪科技圈Gemini争议、港大AI制色情照等社会热点；同步黑龙江工程规划变更动态；科普卵巢癌等健康知识及罕见癌症案例，实时更新多元资讯，满足多维度信息需求。'; ?>">
   <meta property="og:image" content="https://www.thunderflash666.com/favicons.ico">
+   <!-- 结构化数据 -->
+  <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "{$menu_list} | thunderflash666",
+            "description": "{$menuDescription}",
+            "url": "https://www.thunderflash666.com/cate/{$menuId}",
+            "publisher": {
+                "@type": "Organization",
+                "name": "thunderflash666",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.thunderflash666.com/favicons.ico"
+                }
+            }
+        }
+    </script>
   <meta name="applicable-device" content="pc,mobile">
   <meta http-equiv="Cache-Control" content="no-transform">
   <link rel="stylesheet" href="/static/css/style.css" media="all">
   <link rel="icon" href="/favicons.ico" type="image/x-icon">
   <link rel="shortcut icon" href="/favicons.ico">
-  <link rel="canonical"
-        href="https://www.thunderflash666.com/cate/{$menuId}/{$menuTitle}">
+  <link rel="canonical" href="https://www.thunderflash666.com/cate/{$menuId}/{$menuTitle}">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H4EJPXHYJZ"></script>
   <script>
@@ -66,7 +83,8 @@
     </div>
     <div class="container wrap">
       <ol class="breadcrumb">
-        <li class="active"><i class="web-icon wi"></i><a href="/">首页</a> >> <a href="/cate/{$menuId}">{$menu_list}</a> </li>
+        <li class="active"><i class="web-icon wi"></i><a href="/">首页</a> >> <a href="/cate/{$menuId}">{$menu_list}</a>
+        </li>
       </ol>
       <main class="main">
         <section class="sec-panel sec-panel-default">
